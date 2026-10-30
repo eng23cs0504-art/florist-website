@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Rose Florist n Decorators | Bouquets and floral arrangements</title>
+<meta name="description" content="Roses, sunflowers, lilies, orchids and floral arrangements from My Rose Florist n Decorators. Open 24 hours. Enquire on WhatsApp.">
+<meta name="theme-color" content="#F7F4ED">
+<meta property="og:title" content="My Rose Florist n Decorators">
+<meta property="og:description" content="Bouquets and floral arrangements. Open 24 hours. Enquire on WhatsApp.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23632C3A'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-style='italic' font-size='32' text-anchor='middle' fill='%23F7F4ED'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/bodoni-moda-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Bodoni Moda";src:url("/fonts/bodoni-moda-latin-opsz-normal.woff2") format("woff2");font-weight:400 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Bodoni Moda";src:url("/fonts/bodoni-moda-latin-opsz-italic.woff2") format("woff2");font-weight:400 900;font-style:italic;font-display:swap}
+@font-face{font-family:"Hanken Grotesk";src:url("/fonts/hanken-grotesk-latin-wght-normal.woff2") format("woff2");font-weight:100 900;font-style:normal;font-display:swap}
+
+:root{
+  --ivory:#F7F4ED; --burgundy:#632C3A; --sage:#A7AE98; --blush:#E8D4D1; --charcoal:#292725; --white:#FFFFFF;
+  --sage-deep:#566049;      /* darker sage, used only where sage must carry text */
+  --error:#8A1F2B;
+  --serif:"Bodoni Moda","Didot","Bodoni 72","Playfair Display",Georgia,"Times New Roman",serif;
+  --sans:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --hdr:64px;
+  --gutter:clamp(1.25rem,4vw,3rem);
+  --max:1320px;
+  --section:clamp(4.5rem,10vw,9rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--hdr) + 16px);-webkit-text-size-adjust:100%}
+html.nav-open{overflow:hidden}
+body{margin:0;background:var(--ivory);color:var(--charcoal);font:400 1rem/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3,p,ul,ol,dl,dd,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--burgundy);outline-offset:3px}
+.on-dark :focus-visible{outline-color:var(--ivory)}
+.skip{position:absolute;left:var(--gutter);top:-4rem;background:var(--burgundy);color:var(--ivory);padding:.7rem 1rem;z-index:100;text-decoration:none}
+.skip:focus{top:.75rem}
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.section{padding-block:var(--section)}
+.section--blush{background:var(--blush)}
+.section--sage{background:var(--sage)}
+.display{font-family:var(--serif);font-weight:400;letter-spacing:-.02em;line-height:1.02;color:var(--burgundy);font-optical-sizing:auto}
+.h2{font-size:clamp(2.2rem,5.2vw,4.1rem)}
+.lede{max-width:56ch;font-size:1.0625rem}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:48px;padding:.8rem 1.6rem;border:1px solid var(--burgundy);background:var(--burgundy);color:var(--ivory);font-weight:500;font-size:.95rem;letter-spacing:.01em;text-decoration:none;cursor:pointer;transition:background-color .25s,color .25s,border-color .25s}
+.btn:hover{background:var(--ivory);color:var(--burgundy)}
+.btn--line{background:transparent;color:var(--burgundy)}
+.btn--line:hover{background:var(--burgundy);color:var(--ivory)}
+.btn--sm{min-height:44px;padding:.55rem 1.1rem;font-size:.9rem}
+.btn[disabled]{opacity:.55;cursor:not-allowed}
+.btn .ico{flex:none}
+.textlink{color:var(--burgundy);text-underline-offset:.3em;text-decoration-thickness:1px;transition:text-decoration-color .25s}
+.textlink:hover{text-decoration-thickness:2px}
+
+/* ---------- header ---------- */
+.site-header{position:fixed;inset:0 0 auto 0;height:var(--hdr);z-index:50;display:flex;align-items:center;background:var(--ivory);border-bottom:1px solid transparent;transition:border-color .3s}
+.site-header.is-scrolled{border-bottom-color:rgba(99,44,58,.18)}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:baseline;gap:.6rem;text-decoration:none;color:var(--burgundy);white-space:nowrap}
+.brand__main{font-family:var(--serif);font-style:italic;font-size:1.6rem;letter-spacing:-.01em;line-height:1}
+.brand__sub{font-size:.72rem;font-weight:500;letter-spacing:.04em;color:var(--charcoal);display:none}
+.site-nav{position:fixed;top:var(--hdr);left:0;right:0;bottom:0;background:var(--ivory);padding:2rem var(--gutter);display:flex;flex-direction:column;gap:.25rem;visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .25s,transform .25s,visibility 0s .25s;overflow-y:auto}
+.site-nav.is-open{visibility:visible;opacity:1;transform:none;transition:opacity .25s,transform .25s}
+.site-nav a{font-family:var(--serif);font-size:2rem;color:var(--burgundy);text-decoration:none;padding:.5rem 0;border-bottom:1px solid rgba(99,44,58,.15)}
+.header-actions{display:flex;align-items:center;gap:.5rem}
+.menu-btn{width:44px;height:44px;border:0;background:none;display:grid;place-items:center;cursor:pointer;color:var(--burgundy)}
+.menu-btn span{display:block;width:22px;height:1.5px;background:currentColor;position:relative;transition:background-color .2s}
+.menu-btn span::before,.menu-btn span::after{content:"";position:absolute;left:0;width:22px;height:1.5px;background:currentColor;transition:transform .25s}
+.menu-btn span::before{top:-7px}.menu-btn span::after{top:7px}
+.menu-btn[aria-expanded="true"] span{background:transparent}
+.menu-btn[aria-expanded="true"] span::before{transform:translateY(7px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span::after{transform:translateY(-7px) rotate(-45deg)}
+.header-wa{min-height:40px;padding:.4rem .9rem;font-size:.85rem}
+
+/* ---------- hero ---------- */
+main{padding-top:var(--hdr)}
+.hero{display:grid;grid-template-columns:1fr}
+.hero__media{position:relative;order:-1;aspect-ratio:1/1.02;background:var(--blush)}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero__plate{position:absolute;left:0;bottom:0;background:var(--ivory);padding:1rem 1.4rem 1rem var(--gutter)}
+.hero__plate strong{display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.35rem;color:var(--burgundy);line-height:1.2}
+.hero__plate span{font-size:.82rem}
+.hero__text{padding:2.25rem var(--gutter) 3.5rem}
+.hero h1{font-size:clamp(2.6rem,10.5vw,3.6rem);max-width:12ch}
+.hero__sub{margin-top:1.4rem;max-width:44ch;font-size:1.0625rem}
+.hero__cta{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.75rem}
+@media (min-width:900px){
+  .hero{grid-template-columns:minmax(0,1fr) minmax(0,1.12fr);min-height:min(calc(100svh - var(--hdr)),900px)}
+  .hero__media{order:0;aspect-ratio:auto;min-height:620px}
+  .hero__plate{left:-56px;bottom:56px;padding:1.25rem 1.8rem 1.25rem 1.8rem}
+  .hero__text{display:flex;flex-direction:column;justify-content:center;padding:4rem 5rem 4rem max(var(--gutter),calc((100vw - var(--max))/2 + var(--gutter)))}
+  .hero h1{font-size:clamp(3.2rem,5.3vw,5.4rem)}
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero__media img{animation:imgIn 1.4s cubic-bezier(.2,.7,.2,1) both}
+  .hero__text > *{animation:textIn .9s cubic-bezier(.2,.7,.2,1) both}
+  .hero__text > :nth-child(2){animation-delay:.12s}
+  .hero__text > :nth-child(3){animation-delay:.24s}
+  @keyframes imgIn{from{clip-path:inset(0 0 100% 0);transform:scale(1.06)}to{clip-path:inset(0);transform:none}}
+  @keyframes textIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+}
+
+/* ---------- intro ---------- */
+.intro{display:grid;gap:2.5rem}
+.intro__img{max-width:420px}
+.intro__img img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.intro__statement{font-size:clamp(1.9rem,4vw,3.1rem);max-width:20ch}
+.intro__copy{margin-top:1.75rem;max-width:52ch}
+.intro__copy p+p{margin-top:1rem}
+@media (min-width:900px){
+  .intro{grid-template-columns:5fr 7fr;gap:clamp(3rem,8vw,8rem);align-items:end}
+  .intro__img{margin-bottom:-4rem}
+  .intro__text{padding-bottom:1rem}
+}
+
+/* ---------- categories ---------- */
+.cats__head{max-width:60ch;margin-bottom:clamp(2rem,5vw,4rem)}
+.cats__head p{margin-top:1rem}
+.cats{display:grid;gap:3rem}
+.cat-list{border-top:1px solid rgba(99,44,58,.25)}
+.cat-row{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.15rem 0;border-bottom:1px solid rgba(99,44,58,.25);text-decoration:none;color:var(--burgundy);transition:opacity .3s,padding-left .35s cubic-bezier(.2,.7,.2,1)}
+.cat-row__text{display:block;min-width:0}
+.cat-row__name{display:block;font-family:var(--serif);font-size:clamp(2rem,9vw,2.6rem);line-height:1.1;letter-spacing:-.02em}
+.cat-row__note{display:block;margin-top:.25rem;font-size:.9rem;color:var(--charcoal)}
+.cat-row__thumb{flex:none;width:72px;height:90px;object-fit:cover}
+.cat-preview{display:none}
+@media (min-width:900px){
+  .cats{grid-template-columns:7fr 5fr;gap:clamp(3rem,7vw,7rem);align-items:start}
+  .cat-row{padding:1.5rem 0}
+  .cat-row__name{font-size:clamp(2.6rem,5vw,4.4rem)}
+  .cat-row__thumb{display:none}
+  .cat-preview{display:block;position:sticky;top:calc(var(--hdr) + 32px);aspect-ratio:4/5;background:var(--blush);overflow:hidden}
+  .cat-preview__item{position:absolute;inset:0;opacity:0;transition:opacity .5s ease}
+  .cat-preview__item.is-active{opacity:1}
+  .cat-preview__item img{width:100%;height:100%;object-fit:cover}
+}
+@media (hover:hover) and (min-width:900px){
+  .cat-list:hover .cat-row:not(:hover),.cat-list:focus-within .cat-row:not(:focus-visible){opacity:.5}
+  .cat-row:hover,.cat-row:focus-visible{padding-left:1.25rem}
+}
+
+/* ---------- collection ---------- */
+.collection__head{display:grid;gap:1.5rem;margin-bottom:clamp(2rem,4vw,3.5rem)}
+.collection__head p{max-width:52ch}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.chip{min-height:44px;padding:.45rem 1.1rem;border:1px solid rgba(99,44,58,.45);background:transparent;color:var(--burgundy);font-size:.9rem;cursor:pointer;transition:background-color .2s,color .2s}
+.chip:hover{background:var(--blush)}
+.chip.is-active{background:var(--burgundy);color:var(--ivory);border-color:var(--burgundy)}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.5rem .875rem}
+.product[hidden]{display:none}
+.product__media{aspect-ratio:4/5;overflow:hidden;background:var(--blush)}
+.product__media img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.product__body{padding-top:.9rem;display:flex;flex-direction:column;align-items:flex-start;gap:.35rem}
+.product__name{font-family:var(--serif);font-weight:400;font-size:1.2rem;line-height:1.2;letter-spacing:-.01em;color:var(--burgundy)}
+.product__desc{font-size:.9rem;line-height:1.5}
+.product__avail{font-size:.82rem;font-weight:600;color:var(--sage-deep)}
+.product .btn{margin-top:.5rem}
+.products__status{margin-top:1.5rem;font-size:.9rem;color:var(--sage-deep);min-height:1.4em}
+.collection__foot{margin-top:3.5rem;padding-top:2rem;border-top:1px solid rgba(99,44,58,.25);display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center;justify-content:space-between}
+.collection__foot p{max-width:46ch}
+@media (max-width:699px){.product .btn{width:100%;padding-inline:.4rem;font-size:.8rem;gap:.4rem}}
+@media (hover:hover){.product:hover .product__media img{transform:scale(1.035)}}
+@media (min-width:700px){.products{grid-template-columns:repeat(3,minmax(0,1fr));gap:3.5rem 1.5rem}.product__name{font-size:1.4rem}.collection__head{grid-template-columns:1fr 1fr;align-items:end}}
+
+/* ---------- custom ---------- */
+.custom__head{max-width:62ch}
+.custom__head p{margin-top:1.25rem}
+.custom__cta{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.75rem}
+.custom .btn--line:hover{background:var(--burgundy);color:var(--ivory)}
+.custom__grid{margin-top:clamp(3rem,6vw,5rem);display:grid;gap:3rem}
+.custom__img img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.steps{margin-top:1.75rem;display:grid;gap:.9rem;counter-reset:s}
+.steps li{display:grid;grid-template-columns:2rem 1fr;align-items:baseline;counter-increment:s}
+.steps li::before{content:counter(s);font-family:var(--serif);font-size:1.5rem;color:var(--burgundy);line-height:1}
+@media (min-width:900px){
+  .custom__grid{grid-template-columns:5fr 6fr;gap:clamp(3rem,7vw,7rem);align-items:start}
+  .custom__img{position:sticky;top:calc(var(--hdr) + 24px)}
+}
+.form{display:grid;gap:1.4rem}
+.form__row{display:grid;gap:1.4rem}
+@media (min-width:600px){.form__row--2{grid-template-columns:1fr 1fr}}
+.field{display:flex;flex-direction:column;gap:.35rem}
+.field label{font-size:.88rem;font-weight:600}
+.field label small{font-weight:400}
+.field input,.field select,.field textarea{width:100%;min-height:48px;padding:.65rem .1rem;background:transparent;border:0;border-bottom:1px solid var(--charcoal);border-radius:0;font-size:1rem;appearance:none;-webkit-appearance:none}
+.field textarea{min-height:96px;resize:vertical;line-height:1.5}
+.field select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23632C3A' stroke-width='1.5'/%3E%3C/svg%3E") no-repeat right .3rem center;padding-right:1.6rem}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{outline:0;border-bottom-color:var(--burgundy);box-shadow:0 1px 0 var(--burgundy)}
+.field [aria-invalid="true"]{border-bottom-color:var(--error);box-shadow:0 1px 0 var(--error)}
+.field__error{font-size:.85rem;font-weight:500;color:var(--error);min-height:0}
+.form__note{font-size:.88rem}
+.result{margin-top:1.75rem;padding:1.5rem;background:var(--white);border-left:3px solid var(--burgundy)}
+.result[hidden]{display:none}
+.result h3{font-family:var(--serif);font-weight:400;font-size:1.5rem;color:var(--burgundy);line-height:1.2}
+.result p{margin-top:.6rem;font-size:.95rem}
+.result textarea{width:100%;margin-top:1rem;min-height:190px;padding:.75rem;border:1px solid rgba(41,39,37,.35);background:var(--ivory);font-size:.9rem;line-height:1.5;resize:vertical}
+.result__actions{margin-top:1rem;display:flex;flex-wrap:wrap;gap:.6rem}
+
+/* ---------- instagram ---------- */
+.ig{display:grid;gap:2.5rem}
+.ig__handle{display:inline-block;margin-top:1.25rem;font-family:var(--sans);font-weight:500;font-size:clamp(1.05rem,4.6vw,1.7rem);color:var(--burgundy);text-underline-offset:.4em;text-decoration-thickness:1px;overflow-wrap:anywhere}
+.ig__text p{margin-top:1rem;max-width:44ch}
+.ig__text .btn{margin-top:1.75rem}
+.ig__tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;align-items:start}
+.ig__tile{display:block;overflow:hidden;aspect-ratio:3/4;background:var(--blush)}
+.ig__tile:nth-child(2){margin-top:1.5rem}
+.ig__tile img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+@media (hover:hover){.ig__tile:hover img{transform:scale(1.04)}}
+@media (min-width:900px){.ig{grid-template-columns:5fr 7fr;gap:clamp(3rem,7vw,7rem);align-items:center}.ig__tiles{gap:1rem}.ig__tile:nth-child(2){margin-top:3rem}}
+
+/* ---------- visit ---------- */
+.visit{display:grid;gap:3rem}
+.visit h2{font-size:clamp(3rem,11vw,7.5rem);color:var(--burgundy);line-height:.95}
+.visit__lead{margin-top:1.5rem;max-width:40ch}
+.visit .btn{margin-top:1.75rem}
+.visit .btn:hover{background:var(--sage);color:var(--burgundy)}
+.facts{border-top:1px solid rgba(41,39,37,.4)}
+.facts div{display:grid;grid-template-columns:minmax(6.5rem,.35fr) 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(41,39,37,.4)}
+.facts dt{font-weight:600;font-size:.9rem}
+.facts dd{font-size:1rem;overflow-wrap:anywhere}
+.facts a{text-underline-offset:.25em}
+@media (min-width:900px){.visit{grid-template-columns:7fr 5fr;gap:clamp(3rem,7vw,7rem);align-items:end}}
+
+/* ---------- footer ---------- */
+.site-footer{background:var(--burgundy);color:var(--blush);padding:clamp(3.5rem,7vw,6rem) 0 2rem}
+.footer__top{display:grid;gap:2.5rem}
+.footer__brand .brand__main{font-size:2.4rem;color:var(--ivory)}
+.footer__brand p{margin-top:1rem;max-width:34ch;font-size:.95rem}
+.footer__col h2{font-family:var(--sans);font-size:.9rem;font-weight:600;color:var(--ivory);margin-bottom:.75rem}
+.footer__col li+li{margin-top:.1rem}
+.footer__col a{display:inline-block;padding:.3rem 0;color:var(--blush);text-underline-offset:.25em}
+.footer__col a:hover{color:var(--white)}
+.footer__col p{font-size:.95rem}
+.footer__bottom{margin-top:3rem;padding-top:1.5rem;border-top:1px solid rgba(232,212,209,.3);font-size:.85rem}
+@media (min-width:700px){.footer__top{grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem}}
+
+/* ---------- desktop nav ---------- */
+@media (min-width:900px){
+  .brand__sub{display:inline}
+  .menu-btn{display:none}
+  .site-nav{position:static;visibility:visible;opacity:1;transform:none;flex-direction:row;gap:2rem;padding:0;background:none;overflow:visible;transition:none}
+  .site-nav a{font-family:var(--sans);font-size:.95rem;color:var(--charcoal);padding:.4rem 0;border:0;background:linear-gradient(var(--burgundy),var(--burgundy)) no-repeat 0 100%/0 1px;transition:background-size .3s,color .2s}
+  .site-nav a:hover{background-size:100% 1px;color:var(--burgundy)}
+  .header-wa{min-height:44px;padding:.55rem 1.2rem;font-size:.9rem}
+  .header-actions{gap:2rem}
+}
+@media (max-width:420px){.brand__main{font-size:1.4rem}.header-wa span{display:none}.header-wa{width:44px;padding:0}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="My Rose Florist n Decorators, back to top">
+      <span class="brand__main">My Rose</span><span class="brand__sub">Florist n Decorators</span>
+    </a>
+    <div class="header-actions">
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <a href="#categories">Flowers</a>
+        <a href="#collection">Collection</a>
+        <a href="#custom">Custom orders</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <a class="btn btn--sm header-wa js-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99d%20like%20to%20enquire%20about%20your%20flowers." target="_blank" rel="noopener" aria-label="Enquire on WhatsApp"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>WhatsApp</span></a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__text">
+      <h1 class="display" id="hero-title">Flowers for the moments worth remembering</h1>
+      <p class="hero__sub">Roses, sunflowers, lilies, orchids and grand arrangements. Choose from the collection, or tell us what you have in mind.</p>
+      <div class="hero__cta">
+        <a class="btn" href="#collection">Explore the Collection</a>
+        <a class="btn btn--line js-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99d%20like%20to%20enquire%20about%20your%20flowers." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+      </div>
+    </div>
+    <div class="hero__media">
+      <img src="/images/hero-blush-pink-roses-1280.webp" srcset="/images/hero-blush-pink-roses-480.webp 480w, /images/hero-blush-pink-roses-800.webp 800w, /images/hero-blush-pink-roses-1280.webp 1280w" sizes="(min-width: 900px) 52vw, 100vw" width="1280" height="1280" alt="Blush pink rose bouquet wrapped in pink paper with a ribbon, on white linen" loading="eager" fetchpriority="high" decoding="async">
+      <div class="hero__plate"><strong>Open 24 hours</strong><span>Enquire any time on WhatsApp</span></div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="section" aria-labelledby="intro-title">
+    <div class="wrap intro">
+      <div class="intro__img"><img src="/images/workshop-sunflowers-eucalyptus-719.webp" srcset="/images/workshop-sunflowers-eucalyptus-480.webp 480w, /images/workshop-sunflowers-eucalyptus-719.webp 719w" sizes="(min-width: 900px) 34vw, 80vw" width="719" height="960" alt="Sunflowers and eucalyptus in cream wrap" loading="lazy" decoding="async"></div>
+      <div class="intro__text">
+        <h2 class="display intro__statement" id="intro-title">From a single bouquet to a grand arrangement, every order begins with a conversation.</h2>
+        <div class="intro__copy">
+          <p>Browse the collection and tap enquire on anything you like. We reply on WhatsApp with availability, pricing and delivery options for that piece.</p>
+          <p>Want something that isn’t pictured? Choose your flowers, colours and date, and <a class="textlink" href="#custom">request a custom arrangement</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="section" id="categories" aria-labelledby="cats-title" style="padding-top:calc(var(--section) * .6)">
+    <div class="wrap">
+      <div class="cats__head">
+        <h2 class="display h2" id="cats-title">Browse by flower</h2>
+        <p>Choose a category to see those bouquets and arrangements in the collection.</p>
+      </div>
+      <div class="cats">
+        <ul class="cat-list">
+          <li>
+            <a class="cat-row" href="#collection" data-filter="roses" data-index="0">
+              <span class="cat-row__text">
+                <span class="cat-row__name">Roses</span>
+                <span class="cat-row__note">Bouquets in red, pink, yellow and peach</span>
+              </span>
+              <img class="cat-row__thumb" src="/images/cat-pink-roses-800.webp" srcset="/images/cat-pink-roses-480.webp 480w, /images/cat-pink-roses-800.webp 800w" sizes="72px" width="800" height="800" alt="Pink roses in a blush wrap held in one hand" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li>
+            <a class="cat-row" href="#collection" data-filter="sunflowers" data-index="1">
+              <span class="cat-row__text">
+                <span class="cat-row__name">Sunflowers</span>
+                <span class="cat-row__note">Wrapped in kraft, cream and black</span>
+              </span>
+              <img class="cat-row__thumb" src="/images/cat-sunflowers-798.webp" srcset="/images/cat-sunflowers-480.webp 480w, /images/cat-sunflowers-798.webp 798w" sizes="72px" width="798" height="750" alt="Sunflower bouquet in cream wrap" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li>
+            <a class="cat-row" href="#collection" data-filter="lilies" data-index="2">
+              <span class="cat-row__text">
+                <span class="cat-row__name">Lilies</span>
+                <span class="cat-row__note">Pink and white lilies, often with roses</span>
+              </span>
+              <img class="cat-row__thumb" src="/images/pink-white-lilies-bouquet-1000.webp" srcset="/images/pink-white-lilies-bouquet-480.webp 480w, /images/pink-white-lilies-bouquet-800.webp 800w, /images/pink-white-lilies-bouquet-1000.webp 1000w" sizes="72px" width="1000" height="1000" alt="Pink and white lilies with roses in bright pink wrap" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li>
+            <a class="cat-row" href="#collection" data-filter="orchids" data-index="3">
+              <span class="cat-row__text">
+                <span class="cat-row__name">Orchids</span>
+                <span class="cat-row__note">Purple and pink orchid bouquets</span>
+              </span>
+              <img class="cat-row__thumb" src="/images/purple-orchids-bouquet-1200.webp" srcset="/images/purple-orchids-bouquet-480.webp 480w, /images/purple-orchids-bouquet-800.webp 800w, /images/purple-orchids-bouquet-1200.webp 1200w" sizes="72px" width="1200" height="1200" alt="Purple orchid bouquet in soft blue wrap" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li>
+            <a class="cat-row" href="#collection" data-filter="mixed" data-index="4">
+              <span class="cat-row__text">
+                <span class="cat-row__name">Mixed bouquets</span>
+                <span class="cat-row__note">Gerberas, chrysanthemums and sunflowers</span>
+              </span>
+              <img class="cat-row__thumb" src="/images/lilies-chrysanthemum-bouquet-1080.webp" srcset="/images/lilies-chrysanthemum-bouquet-480.webp 480w, /images/lilies-chrysanthemum-bouquet-800.webp 800w, /images/lilies-chrysanthemum-bouquet-1080.webp 1080w" sizes="72px" width="1080" height="1080" alt="Mixed bouquet of lilies and chrysanthemums in pink and silver wrap" loading="lazy" decoding="async">
+            </a>
+          </li>
+          <li>
+            <a class="cat-row" href="#collection" data-filter="arrangements" data-index="5">
+              <span class="cat-row__text">
+                <span class="cat-row__name">Arrangements</span>
+                <span class="cat-row__note">Tall stand and vase arrangements</span>
+              </span>
+              <img class="cat-row__thumb" src="/images/grand-floral-arrangement-1024.webp" srcset="/images/grand-floral-arrangement-480.webp 480w, /images/grand-floral-arrangement-800.webp 800w, /images/grand-floral-arrangement-1024.webp 1024w" sizes="72px" width="1024" height="1280" alt="Tall arrangement of orchids, lilies, tulips, gerberas and roses" loading="lazy" decoding="async">
+            </a>
+          </li>
+        </ul>
+        <div class="cat-preview" aria-hidden="true">
+            <div class="cat-preview__item is-active" data-index="0"><img src="/images/cat-pink-roses-800.webp" srcset="/images/cat-pink-roses-480.webp 480w, /images/cat-pink-roses-800.webp 800w" sizes="(min-width: 900px) 40vw, 1px" width="800" height="800" alt="Pink roses in a blush wrap held in one hand" loading="lazy" decoding="async"></div>
+            <div class="cat-preview__item" data-index="1"><img src="/images/cat-sunflowers-798.webp" srcset="/images/cat-sunflowers-480.webp 480w, /images/cat-sunflowers-798.webp 798w" sizes="(min-width: 900px) 40vw, 1px" width="798" height="750" alt="Sunflower bouquet in cream wrap" loading="lazy" decoding="async"></div>
+            <div class="cat-preview__item" data-index="2"><img src="/images/pink-white-lilies-bouquet-1000.webp" srcset="/images/pink-white-lilies-bouquet-480.webp 480w, /images/pink-white-lilies-bouquet-800.webp 800w, /images/pink-white-lilies-bouquet-1000.webp 1000w" sizes="(min-width: 900px) 40vw, 1px" width="1000" height="1000" alt="Pink and white lilies with roses in bright pink wrap" loading="lazy" decoding="async"></div>
+            <div class="cat-preview__item" data-index="3"><img src="/images/purple-orchids-bouquet-1200.webp" srcset="/images/purple-orchids-bouquet-480.webp 480w, /images/purple-orchids-bouquet-800.webp 800w, /images/purple-orchids-bouquet-1200.webp 1200w" sizes="(min-width: 900px) 40vw, 1px" width="1200" height="1200" alt="Purple orchid bouquet in soft blue wrap" loading="lazy" decoding="async"></div>
+            <div class="cat-preview__item" data-index="4"><img src="/images/lilies-chrysanthemum-bouquet-1080.webp" srcset="/images/lilies-chrysanthemum-bouquet-480.webp 480w, /images/lilies-chrysanthemum-bouquet-800.webp 800w, /images/lilies-chrysanthemum-bouquet-1080.webp 1080w" sizes="(min-width: 900px) 40vw, 1px" width="1080" height="1080" alt="Mixed bouquet of lilies and chrysanthemums in pink and silver wrap" loading="lazy" decoding="async"></div>
+            <div class="cat-preview__item" data-index="5"><img src="/images/grand-floral-arrangement-1024.webp" srcset="/images/grand-floral-arrangement-480.webp 480w, /images/grand-floral-arrangement-800.webp 800w, /images/grand-floral-arrangement-1024.webp 1024w" sizes="(min-width: 900px) 40vw, 1px" width="1024" height="1280" alt="Tall arrangement of orchids, lilies, tulips, gerberas and roses" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLECTION -->
+  <section class="section" id="collection" aria-labelledby="collection-title" style="padding-top:calc(var(--section) * .5)">
+    <div class="wrap">
+      <div class="collection__head">
+        <h2 class="display h2" id="collection-title">The collection</h2>
+        <p>Every piece can be enquired about on WhatsApp. Pricing and availability are shared when you ask.</p>
+      </div>
+      <div class="chips" role="group" aria-label="Filter the collection by flower">
+          <button type="button" class="chip is-active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="chip" data-filter="roses" aria-pressed="false">Roses</button>
+          <button type="button" class="chip" data-filter="sunflowers" aria-pressed="false">Sunflowers</button>
+          <button type="button" class="chip" data-filter="lilies" aria-pressed="false">Lilies</button>
+          <button type="button" class="chip" data-filter="orchids" aria-pressed="false">Orchids</button>
+          <button type="button" class="chip" data-filter="mixed" aria-pressed="false">Mixed bouquets</button>
+          <button type="button" class="chip" data-filter="arrangements" aria-pressed="false">Arrangements</button>
+      </div>
+      <ul class="products" id="products">
+        <li class="product" data-cat="roses">
+          <figure class="product__media">
+            <img src="/images/red-roses-gypsophila-bouquet-960.webp" srcset="/images/red-roses-gypsophila-bouquet-480.webp 480w, /images/red-roses-gypsophila-bouquet-800.webp 800w, /images/red-roses-gypsophila-bouquet-960.webp 960w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="960" height="1280" alt="Red rose bouquet with baby’s breath and a red bow" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Red Roses with Baby’s Breath</h3>
+            <p class="product__desc">Red roses with baby’s breath, finished with a red bow.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Red%20Roses%20with%20Baby%E2%80%99s%20Breath.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Red Roses with Baby’s Breath"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="roses">
+          <figure class="product__media">
+            <img src="/images/red-pink-white-roses-bouquet-1024.webp" srcset="/images/red-pink-white-roses-bouquet-480.webp 480w, /images/red-pink-white-roses-bouquet-800.webp 800w, /images/red-pink-white-roses-bouquet-1024.webp 1024w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="1024" height="1024" alt="Bouquet of red, pink and white roses in red wrap with a white ribbon" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Red, Pink &amp; White Rose Bouquet</h3>
+            <p class="product__desc">Mixed roses in a bold red wrap with a white ribbon.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Red%2C%20Pink%20%26%20White%20Rose%20Bouquet.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Red, Pink &amp; White Rose Bouquet"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="roses">
+          <figure class="product__media">
+            <img src="/images/yellow-roses-bouquet-1000.webp" srcset="/images/yellow-roses-bouquet-480.webp 480w, /images/yellow-roses-bouquet-800.webp 800w, /images/yellow-roses-bouquet-1000.webp 1000w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="1000" height="1000" alt="Yellow rose bouquet in yellow wrap beside a window" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Yellow Rose Bouquet</h3>
+            <p class="product__desc">Yellow roses in matching yellow wrap with a ribbon.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Yellow%20Rose%20Bouquet.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Yellow Rose Bouquet"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="roses">
+          <figure class="product__media">
+            <img src="/images/pink-roses-eucalyptus-bouquet-1000.webp" srcset="/images/pink-roses-eucalyptus-bouquet-480.webp 480w, /images/pink-roses-eucalyptus-bouquet-800.webp 800w, /images/pink-roses-eucalyptus-bouquet-1000.webp 1000w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="1000" height="1000" alt="Pink roses with eucalyptus in blush and cream wrap, held by hand" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Pink Rose &amp; Eucalyptus Bouquet</h3>
+            <p class="product__desc">Pink roses with eucalyptus in blush and cream wrap.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Pink%20Rose%20%26%20Eucalyptus%20Bouquet.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Pink Rose &amp; Eucalyptus Bouquet"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="roses">
+          <figure class="product__media">
+            <img src="/images/grand-red-peach-roses-bouquet-960.webp" srcset="/images/grand-red-peach-roses-bouquet-480.webp 480w, /images/grand-red-peach-roses-bouquet-800.webp 800w, /images/grand-red-peach-roses-bouquet-960.webp 960w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="960" height="1280" alt="Oversized bouquet of red and peach roses carried outside a shop" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Grand Red &amp; Peach Rose Bouquet</h3>
+            <p class="product__desc">An oversized bouquet of red and peach roses.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Grand%20Red%20%26%20Peach%20Rose%20Bouquet.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Grand Red &amp; Peach Rose Bouquet"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="roses">
+          <figure class="product__media">
+            <img src="/images/rose-hydrangea-bouquet-990.webp" srcset="/images/rose-hydrangea-bouquet-480.webp 480w, /images/rose-hydrangea-bouquet-800.webp 800w, /images/rose-hydrangea-bouquet-990.webp 990w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="990" height="1023" alt="Bouquet of pink and red roses with hydrangea in blush wrap" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Rose &amp; Hydrangea Bouquet</h3>
+            <p class="product__desc">Pink and red roses with hydrangea in blush wrap.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Rose%20%26%20Hydrangea%20Bouquet.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Rose &amp; Hydrangea Bouquet"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="lilies">
+          <figure class="product__media">
+            <img src="/images/blue-roses-white-lilies-bouquet-960.webp" srcset="/images/blue-roses-white-lilies-bouquet-480.webp 480w, /images/blue-roses-white-lilies-bouquet-800.webp 800w, /images/blue-roses-white-lilies-bouquet-960.webp 960w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="960" height="1280" alt="Bouquet of blue roses and white lilies in blue wrap with a large ribbon" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Blue Rose &amp; White Lily Bouquet</h3>
+            <p class="product__desc">Blue roses with white lilies and a blue ribbon.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Blue%20Rose%20%26%20White%20Lily%20Bouquet.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Blue Rose &amp; White Lily Bouquet"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="lilies">
+          <figure class="product__media">
+            <img src="/images/pink-white-lilies-bouquet-1000.webp" srcset="/images/pink-white-lilies-bouquet-480.webp 480w, /images/pink-white-lilies-bouquet-800.webp 800w, /images/pink-white-lilies-bouquet-1000.webp 1000w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="1000" height="1000" alt="White lilies and pink roses in bright pink wrap" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Pink &amp; White Lily Bouquet</h3>
+            <p class="product__desc">Lilies and roses in bright pink wrap.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Pink%20%26%20White%20Lily%20Bouquet.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Pink &amp; White Lily Bouquet"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="lilies">
+          <figure class="product__media">
+            <img src="/images/pink-lilies-roses-bouquet-720.webp" srcset="/images/pink-lilies-roses-bouquet-480.webp 480w, /images/pink-lilies-roses-bouquet-720.webp 720w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="720" height="721" alt="Slim bouquet of pink lilies and roses with baby’s breath and a pink ribbon" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Pink Lily &amp; Rose Bouquet</h3>
+            <p class="product__desc">Pink lilies and roses with baby’s breath.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Pink%20Lily%20%26%20Rose%20Bouquet.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Pink Lily &amp; Rose Bouquet"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="sunflowers">
+          <figure class="product__media">
+            <img src="/images/sunflowers-kraft-wrap-bouquet-1280.webp" srcset="/images/sunflowers-kraft-wrap-bouquet-480.webp 480w, /images/sunflowers-kraft-wrap-bouquet-800.webp 800w, /images/sunflowers-kraft-wrap-bouquet-1280.webp 1280w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="1280" height="1280" alt="Sunflower and eucalyptus bouquet in kraft paper" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Sunflower Bouquet, Kraft Wrap</h3>
+            <p class="product__desc">Sunflowers and eucalyptus in kraft paper.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Sunflower%20Bouquet%2C%20Kraft%20Wrap.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Sunflower Bouquet, Kraft Wrap"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="sunflowers">
+          <figure class="product__media">
+            <img src="/images/sunflowers-cream-wrap-bouquet-798.webp" srcset="/images/sunflowers-cream-wrap-bouquet-480.webp 480w, /images/sunflowers-cream-wrap-bouquet-798.webp 798w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="798" height="750" alt="Sunflowers with eucalyptus in layered cream wrap" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Sunflower Bouquet, Cream Wrap</h3>
+            <p class="product__desc">Sunflowers with eucalyptus in layered cream wrap.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Sunflower%20Bouquet%2C%20Cream%20Wrap.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Sunflower Bouquet, Cream Wrap"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="sunflowers">
+          <figure class="product__media">
+            <img src="/images/sunflowers-black-wrap-bouquet-1024.webp" srcset="/images/sunflowers-black-wrap-bouquet-480.webp 480w, /images/sunflowers-black-wrap-bouquet-800.webp 800w, /images/sunflowers-black-wrap-bouquet-1024.webp 1024w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="1024" height="1024" alt="Sunflower bouquet in black wrap tied with a gold ribbon" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Sunflower Bouquet, Black Wrap</h3>
+            <p class="product__desc">Sunflowers in black wrap with a gold ribbon.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Sunflower%20Bouquet%2C%20Black%20Wrap.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Sunflower Bouquet, Black Wrap"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="orchids">
+          <figure class="product__media">
+            <img src="/images/purple-orchids-bouquet-1200.webp" srcset="/images/purple-orchids-bouquet-480.webp 480w, /images/purple-orchids-bouquet-800.webp 800w, /images/purple-orchids-bouquet-1200.webp 1200w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="1200" height="1200" alt="Purple orchid bouquet with white roses in soft blue wrap" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Purple Orchid Bouquet</h3>
+            <p class="product__desc">Purple orchids with white roses in soft blue wrap.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Purple%20Orchid%20Bouquet.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Purple Orchid Bouquet"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="orchids">
+          <figure class="product__media">
+            <img src="/images/orchids-roses-bouquet-661.webp" srcset="/images/orchids-roses-bouquet-480.webp 480w, /images/orchids-roses-bouquet-661.webp 661w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="661" height="1000" alt="Pink orchids and roses in cream wrap with a pink gerbera-style frill" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Orchid &amp; Rose Bouquet</h3>
+            <p class="product__desc">Pink orchids and roses in cream and pink wrap.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Orchid%20%26%20Rose%20Bouquet.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Orchid &amp; Rose Bouquet"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="mixed">
+          <figure class="product__media">
+            <img src="/images/lilies-chrysanthemum-bouquet-1080.webp" srcset="/images/lilies-chrysanthemum-bouquet-480.webp 480w, /images/lilies-chrysanthemum-bouquet-800.webp 800w, /images/lilies-chrysanthemum-bouquet-1080.webp 1080w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="1080" height="1080" alt="Mixed bouquet of lilies and chrysanthemums in pink and silver wrap" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Lily &amp; Chrysanthemum Bouquet</h3>
+            <p class="product__desc">Lilies, chrysanthemums and mixed blooms in pink and silver wrap.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Lily%20%26%20Chrysanthemum%20Bouquet.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Lily &amp; Chrysanthemum Bouquet"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="mixed">
+          <figure class="product__media">
+            <img src="/images/sunflower-gerbera-bouquet-805.webp" srcset="/images/sunflower-gerbera-bouquet-480.webp 480w, /images/sunflower-gerbera-bouquet-805.webp 805w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="805" height="1024" alt="Bouquet of sunflowers, gerberas and roses with a large pink ribbon" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Sunflower &amp; Gerbera Bouquet</h3>
+            <p class="product__desc">Sunflowers, gerberas and roses in bright pink wrap.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Sunflower%20%26%20Gerbera%20Bouquet.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Sunflower &amp; Gerbera Bouquet"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="arrangements">
+          <figure class="product__media">
+            <img src="/images/grand-floral-arrangement-1024.webp" srcset="/images/grand-floral-arrangement-480.webp 480w, /images/grand-floral-arrangement-800.webp 800w, /images/grand-floral-arrangement-1024.webp 1024w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="1024" height="1280" alt="Tall arrangement of orchids, lilies, tulips, gerberas and roses in a white vase" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Grand Floral Arrangement</h3>
+            <p class="product__desc">A tall arrangement of orchids, lilies, tulips, gerberas and roses.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Grand%20Floral%20Arrangement.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Grand Floral Arrangement"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="arrangements">
+          <figure class="product__media">
+            <img src="/images/rose-lily-arrangement-1066.webp" srcset="/images/rose-lily-arrangement-480.webp 480w, /images/rose-lily-arrangement-800.webp 800w, /images/rose-lily-arrangement-1066.webp 1066w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="1066" height="1280" alt="Arrangement of pink roses and lilies with tall white stems in a glass vase" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Rose &amp; Lily Arrangement</h3>
+            <p class="product__desc">Pink roses and lilies with tall white stems in a glass vase.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Rose%20%26%20Lily%20Arrangement.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Rose &amp; Lily Arrangement"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="arrangements">
+          <figure class="product__media">
+            <img src="/images/mixed-flower-arrangement-853.webp" srcset="/images/mixed-flower-arrangement-480.webp 480w, /images/mixed-flower-arrangement-800.webp 800w, /images/mixed-flower-arrangement-853.webp 853w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="853" height="1280" alt="Triangular arrangement of red, yellow and white roses in a white planter" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Mixed Flower Arrangement</h3>
+            <p class="product__desc">Red, yellow and white roses with greens in a white planter.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Mixed%20Flower%20Arrangement.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Mixed Flower Arrangement"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+        <li class="product" data-cat="arrangements">
+          <figure class="product__media">
+            <img src="/images/red-rose-arrangement-960.webp" srcset="/images/red-rose-arrangement-480.webp 480w, /images/red-rose-arrangement-800.webp 800w, /images/red-rose-arrangement-960.webp 960w" sizes="(min-width: 1100px) 410px, (min-width: 700px) 33vw, 50vw" width="960" height="1280" alt="Arrangement of red roses with eucalyptus and palm greens" loading="lazy" decoding="async">
+          </figure>
+          <div class="product__body">
+            <h3 class="product__name">Red Rose Arrangement</h3>
+            <p class="product__desc">Red roses with eucalyptus and palm greens in a low vase.</p>
+            <p class="product__avail">Enquire for availability</p>
+            <a class="btn btn--line btn--sm js-product-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99m%20interested%20in%20the%20Red%20Rose%20Arrangement.%20Could%20you%20please%20share%20its%20availability%2C%20pricing%2C%20and%20delivery%20options%3F" target="_blank" rel="noopener" data-product="Red Rose Arrangement"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Enquire on WhatsApp</span></a>
+          </div>
+        </li>
+      </ul>
+      <p class="products__status" id="products-status" role="status" aria-live="polite"></p>
+      <div class="collection__foot">
+        <p>Don’t see exactly what you’re after? We can arrange flowers to your own brief.</p>
+        <a class="btn" href="#custom">Request a Custom Arrangement</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOM -->
+  <section class="section section--blush custom" id="custom" aria-labelledby="custom-title">
+    <div class="wrap">
+      <div class="custom__head">
+        <h2 class="display h2" id="custom-title">Request a custom arrangement</h2>
+        <p class="lede">Tell us the occasion, the flowers and colours you like, and when you need them. Your request opens in WhatsApp, where the florist confirms what’s possible.</p>
+        <div class="custom__cta">
+          <a class="btn" href="#custom-form">Request a Custom Arrangement</a>
+          <a class="btn btn--line js-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99d%20like%20to%20enquire%20about%20your%20flowers." target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Chat on WhatsApp</span></a>
+        </div>
+      </div>
+      <div class="custom__grid">
+        <div class="custom__img">
+          <img src="/images/workshop-mixed-bouquet-bench-1057.webp" srcset="/images/workshop-mixed-bouquet-bench-480.webp 480w, /images/workshop-mixed-bouquet-bench-800.webp 800w, /images/workshop-mixed-bouquet-bench-1057.webp 1057w" sizes="(min-width: 900px) 40vw, 100vw" width="1057" height="1229" alt="Mixed bouquet of lilies, gerberas and chrysanthemums in gold-edged wrap, on a workbench with scissors" loading="lazy" decoding="async">
+          <ol class="steps">
+            <li>Fill in the form with your delivery details.</li>
+            <li>Your request opens in WhatsApp, ready to send.</li>
+            <li>The florist confirms availability, pricing and delivery with you.</li>
+          </ol>
+        </div>
+        <div>
+          <form class="form" id="custom-form" novalidate aria-label="Custom arrangement request">
+            <div class="form__row form__row--2">
+              <div class="field">
+                <label for="f-name">Your name</label>
+                <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+                <p class="field__error" id="e-name"></p>
+              </div>
+              <div class="field">
+                <label for="f-phone">Contact number</label>
+                <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="e-phone">
+                <p class="field__error" id="e-phone"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-type">Arrangement type</label>
+              <select id="f-type" name="type" required aria-describedby="e-type">
+                <option value="">Choose a type</option>
+                <option>Rose bouquet</option>
+                <option>Sunflower bouquet</option>
+                <option>Lily bouquet</option>
+                <option>Orchid bouquet</option>
+                <option>Mixed bouquet</option>
+                <option>Tall or vase arrangement</option>
+                <option>Something else (describe below)</option>
+              </select>
+              <p class="field__error" id="e-type"></p>
+            </div>
+            <div class="form__row form__row--2">
+              <div class="field">
+                <label for="f-date">Preferred delivery date</label>
+                <input id="f-date" name="date" type="date" required aria-describedby="e-date">
+                <p class="field__error" id="e-date"></p>
+              </div>
+              <div class="field">
+                <label for="f-time">Preferred time</label>
+                <input id="f-time" name="time" type="time" required aria-describedby="e-time">
+                <p class="field__error" id="e-time"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-address">Delivery address</label>
+              <textarea id="f-address" name="address" rows="3" autocomplete="street-address" required aria-describedby="e-address"></textarea>
+              <p class="field__error" id="e-address"></p>
+            </div>
+            <div class="field">
+              <label for="f-notes">Additional preferences or instructions <small>(optional)</small></label>
+              <textarea id="f-notes" name="notes" rows="3" maxlength="500" aria-describedby="e-notes"></textarea>
+              <p class="field__error" id="e-notes"></p>
+            </div>
+            <div>
+              <button class="btn" type="submit" id="submit-btn"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Send request on WhatsApp</span></button>
+              <p class="form__note" style="margin-top:.9rem">Nothing is booked until the florist confirms with you on WhatsApp.</p>
+            </div>
+          </form>
+          <div class="result" id="result" hidden tabindex="-1" role="status">
+            <h3>Your request is ready to send</h3>
+            <p>It isn’t confirmed yet. Send the message in WhatsApp and the florist will confirm availability, pricing and delivery with you there.</p>
+            <p id="result-open-note"></p>
+            <textarea id="result-msg" readonly aria-label="Prepared WhatsApp message"></textarea>
+            <div class="result__actions">
+              <a class="btn btn--sm" id="result-link" href="#" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Open WhatsApp</span></a>
+              <button class="btn btn--sm btn--line" id="copy-btn" type="button">Copy message</button>
+            </div>
+            <p id="copy-status" role="status" aria-live="polite" style="min-height:1.4em"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="section" aria-labelledby="ig-title">
+    <div class="wrap ig">
+      <div class="ig__text">
+        <h2 class="display h2" id="ig-title">Follow along on Instagram</h2>
+        <a class="ig__handle" href="https://www.instagram.com/my_rose_florist__decorators_/" target="_blank" rel="noopener">@my_rose_florist__decorators_</a>
+        <p>See more of our bouquets and arrangements on our Instagram profile.</p>
+        <a class="btn btn--line" href="https://www.instagram.com/my_rose_florist__decorators_/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><span>Visit on Instagram</span></a>
+      </div>
+      <div class="ig__tiles">
+        <a class="ig__tile" href="https://www.instagram.com/my_rose_florist__decorators_/" target="_blank" rel="noopener" aria-label="Open our Instagram profile"><img src="/images/workshop-pink-lilies-roses-719.webp" srcset="/images/workshop-pink-lilies-roses-480.webp 480w, /images/workshop-pink-lilies-roses-719.webp 719w" sizes="(min-width: 900px) 22vw, 33vw" width="719" height="858" alt="Pink lilies and roses bouquet in pink wrap" loading="lazy" decoding="async"></a>
+<a class="ig__tile" href="https://www.instagram.com/my_rose_florist__decorators_/" target="_blank" rel="noopener" aria-label="Open our Instagram profile"><img src="/images/workshop-peach-roses-black-wrap-684.webp" srcset="/images/workshop-peach-roses-black-wrap-480.webp 480w, /images/workshop-peach-roses-black-wrap-684.webp 684w" sizes="(min-width: 900px) 22vw, 33vw" width="684" height="717" alt="Peach roses in black wrap with eucalyptus" loading="lazy" decoding="async"></a>
+<a class="ig__tile" href="https://www.instagram.com/my_rose_florist__decorators_/" target="_blank" rel="noopener" aria-label="Open our Instagram profile"><img src="/images/pink-roses-sofa-bouquet-680.webp" srcset="/images/pink-roses-sofa-bouquet-480.webp 480w, /images/pink-roses-sofa-bouquet-680.webp 680w" sizes="(min-width: 900px) 22vw, 33vw" width="680" height="716" alt="Large pink rose bouquet in pink wrap on a sofa" loading="lazy" decoding="async"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="section section--sage" id="visit" aria-labelledby="visit-title">
+    <div class="wrap visit">
+      <div>
+        <h2 class="display" id="visit-title">Open 24 hours</h2>
+        <p class="visit__lead">Message us on WhatsApp whenever you need flowers, or find us on Google Maps.</p>
+        <a class="btn" href="https://share.google/VrGCkGZH1HyHINRhN" target="_blank" rel="noopener" id="directions">Get Directions</a>
+      </div>
+      <dl class="facts">
+        <div><dt>Business</dt><dd>My Rose Florist n Decorators</dd></div>
+        <div><dt>Hours</dt><dd>Open 24 hours</dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:+917798678403">+91 77986 78403</a></dd></div>
+        <div><dt>WhatsApp</dt><dd><a class="js-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99d%20like%20to%20enquire%20about%20your%20flowers." target="_blank" rel="noopener">Message us</a></dd></div>
+        <div><dt>Instagram</dt><dd><a href="https://www.instagram.com/my_rose_florist__decorators_/" target="_blank" rel="noopener">@my_rose_florist__decorators_</a></dd></div>
+        <div><dt>Location</dt><dd><a href="https://share.google/VrGCkGZH1HyHINRhN" target="_blank" rel="noopener">View on Google Maps</a></dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer on-dark">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a class="brand" href="#top"><span class="brand__main">My Rose</span></a>
+        <p>Florist n Decorators. Bouquets and floral arrangements, enquired and confirmed on WhatsApp.</p>
+      </div>
+      <nav class="footer__col" aria-label="Footer">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="#categories">Flowers</a></li>
+          <li><a href="#collection">Collection</a></li>
+          <li><a href="#custom">Custom orders</a></li>
+          <li><a href="#visit">Visit</a></li>
+        </ul>
+      </nav>
+      <div class="footer__col">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="tel:+917798678403">+91 77986 78403</a></li>
+          <li><a class="js-wa" href="https://wa.me/917798678403?text=Hello!%20I%E2%80%99d%20like%20to%20enquire%20about%20your%20flowers." target="_blank" rel="noopener">Enquire on WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/my_rose_florist__decorators_/" target="_blank" rel="noopener">@my_rose_florist__decorators_</a></li>
+          <li><a href="https://share.google/VrGCkGZH1HyHINRhN" target="_blank" rel="noopener">Google Maps</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h2>Hours</h2>
+        <p>Open 24 hours</p>
+      </div>
+    </div>
+    <p class="footer__bottom">© My Rose Florist n Decorators</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ===== Configuration: the only place contact details live in script ===== */
+  var CONFIG = {
+    whatsapp: '917798678403',                 // digits only, with country code (91 = India)
+    mapsUrl: 'https://share.google/VrGCkGZH1HyHINRhN',                // Google link supplied by the business
+    addressText: ''                     // street address text: not supplied yet. If filled in, Get Directions uses it.
+  };
+
+  function waUrl(msg) { return 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(msg); }
+  var q = function (s, r) { return (r || document).querySelector(s); };
+  var qa = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  /* ===== Generic WhatsApp links ===== */
+  qa('.js-wa').forEach(function (a) { a.href = waUrl('Hello! I’d like to enquire about your flowers.'); });
+
+  /* ===== Product enquiry links ===== */
+  qa('.js-product-wa').forEach(function (a) {
+    var p = a.getAttribute('data-product');
+    a.href = waUrl('Hello! I’m interested in the ' + p + '. Could you please share its availability, pricing, and delivery options?');
+  });
+
+  /* ===== Directions ===== */
+  var dir = q('#directions');
+  if (dir) {
+    dir.href = CONFIG.addressText
+      ? 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(CONFIG.addressText)
+      : CONFIG.mapsUrl;
+  }
+
+  /* ===== Header: scrolled state ===== */
+  var header = q('.site-header');
+  function onScroll() { header.classList.toggle('is-scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  /* ===== Mobile menu ===== */
+  var menuBtn = q('#menu-btn'), nav = q('#site-nav'), root = document.documentElement;
+  function setMenu(open, returnFocus) {
+    nav.classList.toggle('is-open', open);
+    root.classList.toggle('nav-open', open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (open) { var f = q('a', nav); if (f) f.focus({ preventScroll: true }); }
+    else if (returnFocus) menuBtn.focus();
+  }
+  menuBtn.addEventListener('click', function () { setMenu(!nav.classList.contains('is-open')); });
+  qa('a', nav).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && nav.classList.contains('is-open')) setMenu(false, true); });
+  var mq = window.matchMedia('(min-width: 900px)');
+  function onMq() { if (mq.matches) setMenu(false); }
+  (mq.addEventListener ? mq.addEventListener('change', onMq) : mq.addListener(onMq));
+  window.addEventListener('pageshow', function () { root.classList.remove('nav-open'); if (!nav.classList.contains('is-open')) root.classList.remove('nav-open'); });
+
+  /* ===== Category preview (desktop) ===== */
+  var rows = qa('.cat-row'), prevs = qa('.cat-preview__item');
+  function showPreview(i) { prevs.forEach(function (p, n) { p.classList.toggle('is-active', n === i); }); }
+  rows.forEach(function (r, i) {
+    r.addEventListener('mouseenter', function () { showPreview(i); });
+    r.addEventListener('focus', function () { showPreview(i); });
+  });
+
+  /* ===== Collection filter ===== */
+  var chips = qa('.chip'), items = qa('.product'), status = q('#products-status');
+  var labels = {}; chips.forEach(function (c) { labels[c.getAttribute('data-filter')] = c.textContent.trim(); });
+  function setFilter(key) {
+    var n = 0;
+    items.forEach(function (it) {
+      var show = key === 'all' || it.getAttribute('data-cat') === key;
+      it.hidden = !show; if (show) n++;
+    });
+    chips.forEach(function (c) {
+      var on = c.getAttribute('data-filter') === key;
+      c.classList.toggle('is-active', on); c.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    status.textContent = key === 'all' ? '' : 'Showing ' + n + ' in ' + labels[key].toLowerCase() + '.';
+  }
+  chips.forEach(function (c) { c.addEventListener('click', function () { setFilter(c.getAttribute('data-filter')); }); });
+  rows.forEach(function (r) { r.addEventListener('click', function () { setFilter(r.getAttribute('data-filter')); }); });
+
+  /* ===== Custom arrangement form ===== */
+  var form = q('#custom-form'), result = q('#result');
+  var fields = {
+    name: q('#f-name'), phone: q('#f-phone'), type: q('#f-type'), date: q('#f-date'),
+    time: q('#f-time'), address: q('#f-address'), notes: q('#f-notes')
+  };
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function todayStr() { var d = new Date(); return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
+  function nowStr() { var d = new Date(); return pad(d.getHours()) + ':' + pad(d.getMinutes()); }
+  fields.date.min = todayStr();
+
+  function setErr(key, msg) {
+    var el = fields[key], out = q('#e-' + key);
+    out.textContent = msg || '';
+    if (msg) el.setAttribute('aria-invalid', 'true'); else el.removeAttribute('aria-invalid');
+    return !msg;
+  }
+  var rules = {
+    name: function (v) { return v.trim().length < 2 ? 'Enter your name.' : ''; },
+    phone: function (v) {
+      var d = v.replace(/[\s\-().]/g, '');
+      if (!d) return 'Enter a contact number.';
+      if (!/^\+?\d{10,15}$/.test(d)) return 'Enter a number with 10 to 15 digits, for example 98765 43210.';
+      return '';
+    },
+    type: function (v) { return v ? '' : 'Choose an arrangement type.'; },
+    date: function (v) {
+      if (!v) return 'Choose a delivery date.';
+      if (v < todayStr()) return 'Choose today or a later date.';
+      return '';
+    },
+    time: function (v) {
+      if (!v) return 'Choose a preferred time.';
+      if (fields.date.value === todayStr() && v < nowStr()) return 'That time has already passed today. Choose a later time.';
+      return '';
+    },
+    address: function (v) { return v.trim().length < 8 ? 'Enter the full delivery address.' : ''; },
+    notes: function (v) { return v.length > 500 ? 'Keep notes under 500 characters.' : ''; }
+  };
+  function validate(key) { return setErr(key, rules[key](fields[key].value)); }
+  Object.keys(fields).forEach(function (k) {
+    fields[k].addEventListener('blur', function () { if (fields[k].value || fields[k].hasAttribute('aria-invalid')) validate(k); });
+    fields[k].addEventListener('input', function () { if (fields[k].hasAttribute('aria-invalid')) validate(k); });
+    fields[k].addEventListener('change', function () { if (k === 'date' && fields.time.value) validate('time'); });
+  });
+
+  function fmtDate(v) {
+    var p = v.split('-'), d = new Date(+p[0], +p[1] - 1, +p[2]);
+    try { return d.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' }); }
+    catch (e) { return v; }
+  }
+  function fmtTime(v) {
+    var p = v.split(':'), h = +p[0], ap = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12; return h + ':' + p[1] + ' ' + ap;
+  }
+  function buildMessage() {
+    var lines = [
+      'Hello! I’d like to request a custom floral arrangement.', '',
+      'Name: ' + fields.name.value.trim(),
+      'Contact number: ' + fields.phone.value.trim(),
+      'Arrangement type: ' + fields.type.value,
+      'Preferred delivery date: ' + fmtDate(fields.date.value),
+      'Preferred time: ' + fmtTime(fields.time.value),
+      'Delivery address: ' + fields.address.value.trim()
+    ];
+    var notes = fields.notes.value.trim();
+    if (notes) lines.push('Additional preferences: ' + notes);
+    lines.push('', 'Please confirm availability, pricing and delivery. Thank you!');
+    return lines.join('\n');
+  }
+
+  var submitBtn = q('#submit-btn'), busy = false;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (busy) return;                                   // prevents duplicate submissions
+    var firstBad = null;
+    Object.keys(fields).forEach(function (k) { if (!validate(k) && !firstBad) firstBad = fields[k]; });
+    if (firstBad) { firstBad.focus(); return; }
+
+    busy = true; submitBtn.disabled = true;
+    var msg = buildMessage(), url = waUrl(msg);
+    q('#result-msg').value = msg;
+    q('#result-link').href = url;
+    var win = window.open(url, '_blank');
+    if (win) { try { win.opener = null; } catch (err) {} }
+    q('#result-open-note').textContent = win
+      ? 'WhatsApp should have opened in a new tab or app. If it didn’t, use Open WhatsApp below or copy the message and send it to ' + '+91 77986 78403' + '.'
+      : 'Your browser blocked WhatsApp from opening. Use Open WhatsApp below, or copy the message and send it to ' + '+91 77986 78403' + '.';
+    q('#copy-status').textContent = '';
+    result.hidden = false;
+    result.focus({ preventScroll: true });
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    setTimeout(function () { busy = false; submitBtn.disabled = false; }, 3000);
+  });
+
+  q('#copy-btn').addEventListener('click', function () {
+    var ta = q('#result-msg'), st = q('#copy-status');
+    function ok() { st.textContent = 'Message copied.'; }
+    function fallback() {
+      ta.focus(); ta.select();
+      try { document.execCommand('copy') ? ok() : (st.textContent = 'Select the message above and copy it manually.'); }
+      catch (err) { st.textContent = 'Select the message above and copy it manually.'; }
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(ta.value).then(ok, fallback);
+    else fallback();
+  });
+})();
+</script>
+</body>
+</html>
